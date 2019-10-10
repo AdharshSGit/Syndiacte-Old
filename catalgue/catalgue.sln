@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "catalgue", "catalgue.csproj", "{87957933-3D5D-40E3-9A5D-BBB58A38DC71}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87957933-3D5D-40E3-9A5D-BBB58A38DC71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87957933-3D5D-40E3-9A5D-BBB58A38DC71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87957933-3D5D-40E3-9A5D-BBB58A38DC71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87957933-3D5D-40E3-9A5D-BBB58A38DC71}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23852BD2-C115-4E67-BB82-A4EDB61AE2F9}
+	EndGlobalSection
+EndGlobal
