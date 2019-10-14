@@ -1,6 +1,0 @@
-C:\Users\adharsh.s\Desktop\C#\catalgue\obj\Debug\catalgue.csprojAssemblyReference.cache
-C:\Users\adharsh.s\Desktop\C#\catalgue\bin\Debug\catalgue.exe.config
-C:\Users\adharsh.s\Desktop\C#\catalgue\bin\Debug\catalgue.exe
-C:\Users\adharsh.s\Desktop\C#\catalgue\bin\Debug\catalgue.pdb
-C:\Users\adharsh.s\Desktop\C#\catalgue\obj\Debug\catalgue.exe
-C:\Users\adharsh.s\Desktop\C#\catalgue\obj\Debug\catalgue.pdb
