@@ -11,7 +11,7 @@ namespace Catalogue
     {
         public static void Main()
         {
-           
+          
             Laptop[] laptops = new Laptop[5];
 
             laptops[0] = new Laptop(11, "Dell", "Inspiron3481", 27990);
@@ -20,24 +20,27 @@ namespace Catalogue
             laptops[3] = new Laptop(44, "Lenovo", "Ideapad", 27990);
             laptops[4] = new Laptop(55, "Apple", "MacBook Air", 67990);
 
-            List<Lapupdate> lapobj = new List<Lapupdate>();
-            lapobj.Add(new Lapupdate() { Id = 66, Brand ="Dell", Model = "Inspiron", Price =35000});
+           // List<Lapupdate> lapobj = new List<Lapupdate>();
+            // lapobj.Add(new Lapupdate() { Id = 66, Brand ="Dell", Model = "Inspiron", Price =35000});
             
             using (XmlWriter writer = XmlWriter.Create("Laptop.xml"))
             {
+             
                 writer.WriteStartDocument();
                 writer.WriteStartElement("Laptops");
-
+                
                 foreach (Laptop lap in laptops)
                 {
+                    
                     writer.WriteStartElement("Laptop");
 
                     writer.WriteElementString("ID", lap.Id.ToString());
                     writer.WriteElementString("brand", lap.Brand);
                     writer.WriteElementString("model", lap.Model);
                     writer.WriteElementString("price", lap.Price.ToString());
-
+                    
                     writer.WriteEndElement();
+                   
                 }
 
                 writer.WriteEndElement();
@@ -102,11 +105,12 @@ namespace Catalogue
             Laptopread readx = new Laptopread();
             Mouseread ready = new Mouseread();
             Pendriveread readz = new Pendriveread();
-            Update upd = new Update();
+          //  Update upd = new Update();
 
-            Lapadd l = new Lapadd();
-            l.delete();
+            Lapadd update = new Lapadd();
+           update.add();
             Console.ReadKey();
+            
             int choice;
             String user_choice;
 
@@ -139,11 +143,7 @@ namespace Catalogue
                         Console.ReadKey();
                         Environment.Exit(0);
                         break;
-                    case 4:
-                        Console.Clear();
-                        upd.updatedetails(lapobj);
-                        Console.ReadKey();
-                        break;
+                   
 
                     default:
                         Console.WriteLine("Invalid choice - Please enter 1/2/3");
