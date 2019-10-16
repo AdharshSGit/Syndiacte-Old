@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Laptops>
   <Laptop>
-    <ID>22</ID>
-    <brand>22</brand>
-    <model>22</model>
-    <price>22</price>
-  </Laptop>
-  <Laptop>
     <ID>11</ID>
     <brand>Dell</brand>
     <model>Inspiron3481</model>
@@ -28,7 +22,7 @@
     <ID>44</ID>
     <brand>Lenovo</brand>
     <model>Ideapad</model>
-    <price>27990</price>
+    <price>200000</price>
   </Laptop>
   <Laptop>
     <ID>55</ID>
