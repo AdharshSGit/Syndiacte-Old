@@ -108,7 +108,7 @@ namespace Catalogue
           //  Update upd = new Update();
 
             Lapadd update = new Lapadd();
-           update.add();
+           update.updation();
             Console.ReadKey();
             
             int choice;
