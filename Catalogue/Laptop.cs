@@ -124,13 +124,48 @@ namespace Catalogue
 
     class Lapadd
         {
+        public void updation()
+        {
+            Console.WriteLine("Enter the operation to be done..(1/2/3)");
+            Console.WriteLine();
+            Console.WriteLine("-----> 1.) ADD  2.) DELETE  3.) EDIT <------");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+    
+            switch(choice)
+            {
+                case 1:
+                    add();
+                    Console.ReadKey();
+                    break;
+                case 2:
+                    delete();
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    edit();
+                    Console.ReadKey();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice - Please enter 1/2/3");
+                    Console.ReadKey();
+                    break;
+            }
+        }
         public void add()
             {
-           // Console.WriteLine("Enter the device number to be added");
-           // String j = Console.ReadLine();
+            Console.WriteLine("Enter the details of laptop to be added");
+            Console.ReadKey();
+            Console.WriteLine("Enter the ID");
             String x = Console.ReadLine();
+
+            Console.WriteLine("Enter the Brand");
             String y = Console.ReadLine();
+
+            Console.WriteLine("Enter the Model");
             String z = Console.ReadLine();
+
+            Console.WriteLine("Enter the Price");
             String w = Console.ReadLine();
           
             XDocument xDocument = XDocument.Load("Laptop.xml");
@@ -146,66 +181,47 @@ namespace Catalogue
             xDocument.Save("Laptop.xml");
            
             Console.WriteLine("Laptop Added and Saved");
-            Console.WriteLine("Do You want delete the current record (Y/N)");
-            String temp = Console.ReadLine();
-            if(temp=="y"||temp=="Y")
-            {
-            delete(firstRow);
-            }
-            else{
-            return;
-            }
-            }
-        public void delete( XElement firstRow)
+       
+            } 
+        public void delete()
         {
-            Console.WriteLine("Enter the ID to be deleted");
+            Console.WriteLine("Enter the LAPTOP_ID to be deleted");
             String user_id = Console.ReadLine();
-            XDocument xmlDoc = XDocument.Load("Laptop.xml");
             
-           XElement id = firstRow.Element("ID");  
-            id.Remove();  
-            Console.WriteLine(firstRow);  
-            xmlDoc.Save("Laptop.xml");
-            Console.WriteLine("Deletion Done"); 
-
-         /*   IEnumerable<XElement> Laptopdelt = 
-             from Laptop in xmlDoc.Elements("Laptop")
-                   where (string)firstRow.Element("ID") == user_id
-                  select Laptop;
-            Laptopdelt.Remove();
-            Console.WriteLine(user_id);
-            Console.WriteLine(firstRow);
-            Console.WriteLine(Laptopdelt);
-            xmlDoc.Save("Laptop.xml");*/
-           
-          //  xmlDoc.Descendants("Laptop").Where(s =>s.Attribute("ID").Value==user_id).Remove();
-           
-           // xmlDoc.Descendants().Where(s => s.Value =="ID").Remove();
-           //xmlDoc.Descendants().Where(s => s.Value =="brand").Remove();
-           //xmlDoc.Descendants().Where(s => s.Value == "model").Remove();
-            //xmlDoc.Descendants().Where(s => s.Value =="price").Remove();
-        
-
-              //  var elementsToRemove = from elemet in xmlDoc.Elements("Laptops").Elements("Laptop").Elements("ID")  
-                //        where elemet.Attribute("ID").Value == "22"  
-                  //      select elemet;  
-                //foreach (var e in elementsToRemove)  
-               // {  
-               // e.Remove();  
-               // } 
+            XElement xelement = XElement.Load("Laptop.xml");
+            IEnumerable<XElement> Laptops = xelement.Elements();
+            var x = from Laptop in xelement.Elements("Laptop")
+                    where (string)Laptop.Element("ID") == user_id
+                    select Laptop;
+            x.Remove();
+            xelement.Save("Laptop.xml");
+            Console.WriteLine("The Laptop_ID"+ user_id +"is deleted Successfully");
             
         }
-        public void edit(){
+        public void edit()
+        {
+            Console.WriteLine("Enter the Id to be edited");
+            String user_id = Console.ReadLine();
+          //  Console.WriteLine("Enter the price of the"+user_id+"which has to be edited");
+           // String price_edit = Console.ReadLine();
+            Console.WriteLine("Enter the new updated price of the  "+user_id);
+            String pricenew = Console.ReadLine();
 
-             XDocument xmlDoc = XDocument.Load("Laptop.xml");
-            var items = from item in xmlDoc.Descendants("Laptops")  
-            where item.Attribute("ID").Value == "2"  
-            select item;  
+             XElement xelement = XElement.Load("Laptop.xml");
+            IEnumerable<XElement> Laptops = xelement.Elements();
+            var x = from Laptop in xelement.Elements("Laptop")
+                    where (string)Laptop.Element("ID") == user_id
+                    select Laptop;
   
-        foreach (XElement itemElement in items)  
-        {  
-            itemElement.SetAttributeValue("Name", "Project2_Update");  
+        foreach (XElement id in x)  
+        {            
+            String price_detail = id.Element("price").Value;
+           // int price = Convert.ToInt32(price_detail);
+
+            id.SetElementValue("price", pricenew);  
         }  
+            xelement.Save("Laptop.xml");
+            Console.WriteLine("Editing done");
         }
         }
 
