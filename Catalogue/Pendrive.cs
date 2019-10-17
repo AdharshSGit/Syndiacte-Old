@@ -105,5 +105,108 @@ namespace Catalogue
         }
      }
 
+
+    class Pendriveadd
+        {
+        public void updation()
+        {
+            Console.WriteLine("Enter the operation to be done..(1/2/3)");
+            Console.WriteLine();
+            Console.WriteLine("-----> 1.) ADD  2.) DELETE  3.) EDIT <------");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+    
+            switch(choice)
+            {
+                case 1:
+                    add();
+                    Console.ReadKey();
+                    break;
+                case 2:
+                    delete();
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    edit();
+                    Console.ReadKey();
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice - Please enter 1/2/3");
+                    Console.ReadKey();
+                    break;
+            }
+        }
+        public void add()
+            {
+            Console.WriteLine("Enter the details of Pendrive to be added");
+            Console.ReadKey();
+            Console.Write("Enter the ID :");
+            String x = Console.ReadLine();
+
+            Console.Write("Enter the Brand :");
+            String y = Console.ReadLine();
+
+            Console.Write("Enter the Model :");
+            String z = Console.ReadLine();
+
+            Console.Write("Enter the Price :");
+            String w = Console.ReadLine();
+          
+            XDocument xDocument = XDocument.Load("Pendrive.xml");
+            XElement root= xDocument.Element("Pendrives");
+            IEnumerable<XElement> rows = root.Descendants("Pendrive");
+            XElement firstRow= rows.First();
+            firstRow.AddBeforeSelf(
+            new XElement("Pendrive",
+            new XElement("ID", x),
+            new XElement("brand", y),
+            new XElement("model",z),
+            new XElement("price",w)));
+            xDocument.Save("Pendrive.xml");
+           
+            Console.WriteLine("Pendrive Added and Saved");
+       
+            } 
+        public void delete()
+        {
+            Console.Write("Enter the PENDRIVE_ID to be deleted :");
+            String user_id = Console.ReadLine();
+            
+            XElement xelement = XElement.Load("Pendrive.xml");
+            IEnumerable<XElement> Pendrives = xelement.Elements();
+            var x = from Pendrive in xelement.Elements("Pendrive")
+                    where (string)Pendrive.Element("ID") == user_id
+                    select Pendrive;
+            x.Remove();
+            xelement.Save("Pendrive.xml");
+            Console.WriteLine("The PENDRIVE_ID "+ user_id +"is deleted Successfully");
+            
+        }
+        public void edit()
+        {
+            Console.Write("Enter the Id to be edited :");
+            String user_id = Console.ReadLine();
+          
+            Console.Write("Enter the new updated price of the  "+user_id +"  :");
+            String pricenew = Console.ReadLine();
+
+             XElement xelement = XElement.Load("Pendrive.xml");
+            IEnumerable<XElement> Pendrives = xelement.Elements();
+            var x = from Pendrive in xelement.Elements("Pendrive")
+                    where (string)Pendrive.Element("ID") == user_id
+                    select Pendrive;
+  
+        foreach (XElement id in x)  
+        {            
+            String price_detail = id.Element("price").Value;
+          
+            id.SetElementValue("price", pricenew);  
+        }  
+            xelement.Save("Pendrive.xml");
+            Console.WriteLine("Editing done");
+        }
+        }
+
 }
+     
 
