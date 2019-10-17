@@ -156,16 +156,16 @@ namespace Catalogue
             {
             Console.WriteLine("Enter the details of laptop to be added");
             Console.ReadKey();
-            Console.WriteLine("Enter the ID");
+            Console.Write("Enter the ID :");
             String x = Console.ReadLine();
 
-            Console.WriteLine("Enter the Brand");
+            Console.Write("Enter the Brand :");
             String y = Console.ReadLine();
 
-            Console.WriteLine("Enter the Model");
+            Console.Write("Enter the Model :");
             String z = Console.ReadLine();
 
-            Console.WriteLine("Enter the Price");
+            Console.Write("Enter the Price :");
             String w = Console.ReadLine();
           
             XDocument xDocument = XDocument.Load("Laptop.xml");
@@ -185,7 +185,7 @@ namespace Catalogue
             } 
         public void delete()
         {
-            Console.WriteLine("Enter the LAPTOP_ID to be deleted");
+            Console.Write("Enter the LAPTOP_ID to be deleted :");
             String user_id = Console.ReadLine();
             
             XElement xelement = XElement.Load("Laptop.xml");
@@ -195,16 +195,15 @@ namespace Catalogue
                     select Laptop;
             x.Remove();
             xelement.Save("Laptop.xml");
-            Console.WriteLine("The Laptop_ID"+ user_id +"is deleted Successfully");
+            Console.WriteLine("The Laptop_ID "+ user_id +"is deleted Successfully");
             
         }
         public void edit()
         {
-            Console.WriteLine("Enter the Id to be edited");
+            Console.Write("Enter the Id to be edited :");
             String user_id = Console.ReadLine();
-          //  Console.WriteLine("Enter the price of the"+user_id+"which has to be edited");
-           // String price_edit = Console.ReadLine();
-            Console.WriteLine("Enter the new updated price of the  "+user_id);
+          
+            Console.Write("Enter the new updated price of the  "+user_id +"  :");
             String pricenew = Console.ReadLine();
 
              XElement xelement = XElement.Load("Laptop.xml");
@@ -216,8 +215,7 @@ namespace Catalogue
         foreach (XElement id in x)  
         {            
             String price_detail = id.Element("price").Value;
-           // int price = Convert.ToInt32(price_detail);
-
+          
             id.SetElementValue("price", pricenew);  
         }  
             xelement.Save("Laptop.xml");
