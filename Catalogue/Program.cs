@@ -19,9 +19,6 @@ namespace Catalogue
             laptops[2] = new Laptop(33, "Acer", "Nitro 5", 57990);
             laptops[3] = new Laptop(44, "Lenovo", "Ideapad", 27990);
             laptops[4] = new Laptop(55, "Apple", "MacBook Air", 67990);
-
-           // List<Lapupdate> lapobj = new List<Lapupdate>();
-            // lapobj.Add(new Lapupdate() { Id = 66, Brand ="Dell", Model = "Inspiron", Price =35000});
             
             using (XmlWriter writer = XmlWriter.Create("Laptop.xml"))
             {
@@ -107,8 +104,16 @@ namespace Catalogue
             Pendriveread readz = new Pendriveread();
           //  Update upd = new Update();
 
-            Lapadd update = new Lapadd();
-           update.updation();
+            //Lapadd update1 = new Lapadd();
+            //update1.updation();
+            //Console.ReadKey();
+
+            //Mouseadd update2 = new Mouseadd();
+            //update2.updation();
+            //Console.ReadKey();
+
+            Pendriveadd update3 = new Pendriveadd();
+            update3.updation();
             Console.ReadKey();
             
             int choice;
